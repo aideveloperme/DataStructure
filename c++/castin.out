@@ -1,0 +1,153 @@
+Implicit conversion (also known as type promotion) happens automatically when a value is assigned to a compatible type.The C++ compiler performs these conversions without any explicit instruction from the programmer.
+
+Example:  short a = 2000;  // short type
+    int b;           // int type
+    b = a;           // implicit conversion from short to int
+
+
+Explicit conversion requires a specific cast operator and is used when you need to convert a value or object from one type to another and want to ensure the conversion is intentional
+
+ float a = 3.14f;
+    int b;
+
+    b = (int)a;    // C-style cast
+    b = int(a);    // Functional cast
+
+
+
+Defined Data Types (typedef)
+In C++, typedef allows you to create new type names (aliases) for existing data types. This can make code more readable or easier to maintain.
+
+
+typedef existing_type new_type_name;
+typedef char C;             // 'C' is now an alias for 'char'
+typedef unsigned int WORD; // 'WORD' is now an alias for 'unsigned int'
+typedef char* pChar;        // 'pChar' is now an alias for 'char*'
+typedef char field[50];     // 'field' is now an alias for 'char[50]'
+
+// Usage
+C mychar;          // equivalent to 'char mychar'
+WORD myword;       // equivalent to 'unsigned int myword'
+pChar ptc2;        // equivalent to 'char* ptc2'
+field name;        // equivalent to 'char name[50]'
+
+Readability: Simplifies complex type names.
+Maintainability: Allows changing the underlying type in one place rather than throughout the code.
+Consistency: Provides a single place to update types used across multiple parts of the program
+------------
+
+
+Unions
+Unions allow different types to occupy the same memory space. All members of a union share the same memory location, so changing one member affects all members.
+
+
+union union_name {
+    member_type1 member_name1;
+    member_type2 member_name2;
+    member_type3 member_name3;
+    //...
+};
+
+
+
+union MyUnion {
+    char c;
+    int i;
+    float f;
+};
+
+int main() {
+    MyUnion u;
+    
+    u.c = 'A';
+    std::cout << "Character: " << u.c << std::endl;
+    
+    u.i = 1234;
+    std::cout << "Integer: " << u.i << std::endl;
+    
+    u.f = 3.14;
+    std::cout << "Float: " << u.f << std::endl;
+-------------------------
+
+
+
+
+
+
+
+Anonymous Unions
+An anonymous union does not have a name, and its members can be accessed directly.
+
+
+struct Book {
+    char title[50];
+    char author[50];
+    union {
+        float dollars;
+        int yens;
+    }; // Anonymous union
+};
+
+int main() {
+    Book myBook;
+    
+    myBook.dollars = 9.99;
+    std::cout << "Price in dollars: " << myBook.dollars << std::endl;
+
+-----------
+
+Enumerations (enum)
+Enumerations define a set of named integer constants. They provide a way to group related constants under a single type.
+
+
+enum enumeration_name {
+    value1,
+    value2,
+    value3,
+    //...
+};
+#include <iostream>
+
+enum Colors {
+    Black, Blue, Green, Cyan, Red, Purple, Yellow, White
+};
+
+int main() {
+    Colors myColor;
+    myColor = Blue;
+
+    if (myColor == Green) {
+        std::cout << "The color is Green" << std::endl;
+    } else {
+        std::cout << "The color is not Green" << std::endl;
+    }
+
+---------------------------
+
+
+
+
+
+
+typedef: Creates type aliases for better code readability and maintainability.
+Unions: Allow different types to share the same memory location, making it possible to use the same space for different data types but only one at a time.
+Anonymous Unions: Allow direct access to union members without a union name.
+Enumerations (enum): Define a set of named integer constants for better readability and code clarity.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

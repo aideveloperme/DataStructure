@@ -1,0 +1,15 @@
+-for every node , keys in left side are smaller nd keys in right side are greater 
+-all keys are typically considered as distinct 
+-like linkedlist it is a linked data structure 
+
+-implemented in c++, as map,set,multiset,multimap 
+
+example /operation:
+
+create an empty BST 
+insert 20,15,30 
+
+Most of the operation in bst is O(h);height of the BST 
+
+balance BST -O(LOG N)
+so we need balanced bst than O(n)

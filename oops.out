@@ -1,0 +1,147 @@
+A constructor is a special member function that is automatically called when an object is created. It initializes the object's data members.
+
+The constructor has the same name as the class and no return type.
+
+// Constructor with parameters
+    Student(std::string n, int r) : name(n), rollNumber(r) {
+        std::cout << "Student object created!" << std::endl;
+
+
+A destructor is a special member function that is automatically called when an object goes out of scope or is explicitly deleted.
+The destructor has the same name as the class but is preceded by a tilde (~) and has no parameters or return type
+
+A class can have multiple constructors with different parameter lists. This is known as constructor overloading.
+
+// Default constructor
+    Rectangle() : length(0), width(0) {}
+
+    // Parameterized constructor
+    Rectangle(int l, int w) : length(l), width(w) {}
+
+
+
+The default copy constructor is provided by the compiler. It performs a shallow copy of an object.
+It is used to copy an object to another object.
+
+1. Array and String as Class Member DataArrays can be members of a class. You need to define the array size at compile time or use dynamic memory allocation for flexible sizes.
+
+
+
+Inheritance allows a class (known as the derived class) to inherit attributes and methods from another class (known as the base class). This promotes code reuse and establishes an "is-a" relationship between classes.
+
+Single Inheritance: A derived class inherits from a single base class.
+Multiple Inheritance: A derived class inherits from more than one base class.
+Multilevel Inheritance: A derived class inherits from another derived class.
+Hierarchical Inheritance: Multiple derived classes inherit from a single base class.
+Hybrid Inheritance: A combination of more than one type of inheritance.
+
+Derived Class Constructor
+When a derived class object is created, the base class constructor is called first before the derived class constructor.
+
+
+
+
+Overriding Member Functions
+When a derived class has a method with the same name as a method in its base class, the derived class method overrides the base class method.
+-----------------
+
+A pointer is a variable that stores the memory address of another variable.
+
+It allows for dynamic memory management and efficient array handling.
+The address-of operator (&) is used to obtain the address of a variable.
+
+Declaration: type* pointerName;
+Assignment: pointerName = &variable;
+Dereferencing: *pointerName (accesses the value stored at the address pointed to by pointerName).
+
+ Pointers and Arrays
+In C++, the name of an array acts as a pointer to its first element.
+
+Memory Management
+Dynamic Memory Allocation:
+
+Use new to allocate memory dynamically.
+Use delete to deallocate memory that was previously allocated with new.
+
+
+
+A pointer can point to an object of a class. This allows for dynamic object creation and manipulation. // Create an object dynamically
+    Person* personPtr = new Person("Alice", 30);
+    personPtr->display(); // Access object members via pointer
+
+
+
+Virtual Function:
+
+A virtual function is a member function in a base class that you expect to override in derived classes.It enables polymorphism, allowing the correct derived class method to be called through a base class pointer or reference.
+
+The actual function called is determined at runtime based on the type of object that the base class pointer or reference points to.
+class Base {
+public:
+    virtual void display() const { // Virtual function
+        std::cout << "Base class display function" << std::endl;
+    }
+};
+
+class Derived : public Base {
+public:
+    void display() const override { // Override base class function
+        std::cout << "Derived class display function" << std::endl;
+    }
+};
+
+
+Friend Function:
+
+A friend function is a function that is not a member of a class but is allowed to access its private and protected members.
+Declared using the friend keyword inside the class.
+
+class Box {
+private:
+    double length;
+
+public:
+    Box(double l) : length(l) {}
+
+    // Declare a friend function
+    friend void printLength(const Box& b);
+};
+
+// Friend function definition
+void printLength(const Box& b) {
+    std::cout << "Length: " << b.length << std::endl;
+}
+
+
+tatic Function:
+
+A static member function belongs to the class rather than any specific object.
+Can be called without creating an object of the class.
+Can only access static member variables and functions of the class.
+
+class Math {
+public:
+    static int add(int a, int b) { // Static function
+        return a + b;
+    }
+};
+
+int main() {
+    int result = Math::add(5, 3); // Call static function using class name
+
+
+
+ The this Pointer
+this Pointer:
+
+A special pointer available within a non-static member function.
+Points to the object for which the member function is called.
+Used to access members of the class from within the member functions
+
+        this->value = v; // Use 'this' pointer to access members
+
+
+
+
+
+

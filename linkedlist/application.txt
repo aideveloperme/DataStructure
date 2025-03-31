@@ -1,0 +1,14 @@
+1.worst case  insertion at the end and begin =o(1)
+2.w(n) deletion from begining is -o(1)
+3. insertion and deletion at mid01
+4.round robin implemention-cou allocation
+fixed time allocat to oneby one wait for next time , 
+5. merging og 2 sorted ll is faster tha arrays 
+6.easy imple of queue 
+7. insertion and deletion
+
+disava
+no random access 
+
+
+list and array are more use -bcz of random acces 
