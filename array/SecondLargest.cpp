@@ -16,3 +16,7 @@ int main(){
 	getElement(arr,n);
 	return 0;
 }
+
+//Time Complexity: O(NlogN), For sorting the array
+
+//Space Complexity: O(1)
